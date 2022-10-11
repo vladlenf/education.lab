@@ -1,0 +1,46 @@
+.studentMain {
+    display: flex;
+    flex-direction: row;
+    background-color: darkkhaki;
+    color: midnightblue;
+
+}
+body{
+    background-color: darkslategray;
+}
+nav {
+    background-color: coral;
+    border: 2px black solid;
+    min-width: 5%;
+    max-height: 15em;
+}
+section {
+    background-color: lavender;
+    border: 2px white solid;
+    min-height: 20em;
+    width: 75%;
+    height: 100vh;
+}
+
+form {
+    max-width: 10em;
+    max-height: 20em;
+    background-color: darkorange;
+}
+
+.LeftHead{
+    color: #D8C67B;
+}
+
+.MiddleHead{
+    color: darkblue;
+}
+
+body{
+    background-color: cornsilk;
+}
+
+
+
+
+

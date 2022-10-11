@@ -1,0 +1,68 @@
+.header_font{
+    font-size: 1.2em;
+    color:green;
+}
+img{
+    width: 200px;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 0;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 0.2em;
+    padding: 5px;
+}
+.studentMain {
+    margin-left: 15%;
+    margin-right: 15%;
+    height: 250px;
+}
+body{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    background-color: lavender;
+    border: 2px white solid;
+    min-height: 20em;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+form {
+    max-width: 10em;
+    max-height: 20em;
+    background-color: darkorange;
+}
+
+body{
+    background-color: white;
+}
+
+.LeftHead{
+    margin-left: 5%;
+}
+
+.MiddleHead{
+    font-size: 3em;
+    font-style: normal;
+}
+
+.RightHead{
+    margin-right: 5%;
+}
+
+
+
+
+
+
+
+
