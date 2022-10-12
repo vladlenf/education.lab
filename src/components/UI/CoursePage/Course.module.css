@@ -1,0 +1,22 @@
+header{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 0;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 0.2em;
+    padding: 5px;
+}
+
+.LeftHead{
+    margin-left: 5%;
+}
+
+.MiddleHead{
+    font-size: 3em;
+    font-style: normal;
+}
+
+.RightHead{
+    margin-right: 5%;
+}
