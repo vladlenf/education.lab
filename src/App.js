@@ -9,6 +9,7 @@ import AddNewTask from "./components/UI/AddNewTask/AddNewTask";
 import SendTaskToTeacher from "./components/UI/SendTaskToTeacher/SendTaskToTeacher";
 import Notification from "./components/UI/Notification/Notification";
 import FirstPage from "./components/UI/firstPage";
+import CoursePage from "./components/UI/CoursePage/CoursePage";
 
 
 
@@ -28,9 +29,10 @@ const [modal, setModal] = useState(false);
           <Notification flag={1}>asdsa</Notification>
       }> dsadsa
       </MyButton>*/
-    /*  <Userprofile/>*/
-      <FirstPage/>
-      <MyButton/>
+      /*<Userprofile/>*/
+      /*<FirstPage/>*/
+      <CoursePage/>
+
   );
 }
 

@@ -17,7 +17,8 @@ header{
 .studentMain {
     margin-left: 15%;
     margin-right: 15%;
-    height: 250px;
+    height: 100%;
+    margin-bottom: 50px;
 }
 body{
     background-color: black;
@@ -44,6 +45,8 @@ form {
 
 body{
     background-color: white;
+    display: flex;
+    flex-direction: column;
 }
 
 .LeftHead{
@@ -58,6 +61,18 @@ body{
 .RightHead{
     margin-right: 5%;
 }
+
+footer{
+    color: #00a6ff;
+    height: 3em;
+    background: rgba(9, 202, 236, 0.1);
+    text-align: center;
+    font-size: 0.8em;
+}
+footer>div{
+    margin-top: 20px;
+}
+
 
 
 
