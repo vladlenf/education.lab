@@ -5,4 +5,6 @@
     background: transparent;
     border: 1px solid teal;
     cursor: pointer;
+    min-width: 12em;
+    min-height: 3em;
 }

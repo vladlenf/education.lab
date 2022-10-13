@@ -35,8 +35,6 @@ section {
     justify-content: center;
 }
 
-
-
 form {
     max-width: 10em;
     max-height: 20em;
@@ -73,6 +71,10 @@ footer>div{
     margin-top: 20px;
 }
 
+.TwoButton{
+    display: flex;
+    flex-direction: row;
+}
 
 
 

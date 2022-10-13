@@ -1,47 +1,40 @@
-import React, {useState} from 'react';
-import classes from './Course.module.css'
+import React from 'react';
+import classes from './CoursePage.module.css';
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import ExitAccount from "../exitAccount/exitAccount";
 import MyButton from "../button/button";
-import AddNewTask from "../AddNewTask/AddNewTask";
-import Login from "../Login/Login";
-import MyModal from "../MyModal/MyModal";
-import AddKurs from "../AddKurs/AddKurs";
 
 const CoursePage = () => {
-    const [modal, setModal] = useState(false);
     return (
         <body>
-            <div>
-                <header>
-                    <BurgerMenu/>
-                    <div className="classes.LeftHead">
+            <header>
+                <BurgerMenu/>
+                <div>
 
+                </div>
+                <div className={classes.MiddleHead}>
+                    <h1>Список доступных курсов</h1>
+                </div>
+                <div className={classes.RightHead}>
+                    <ExitAccount/>
+                </div>
+            </header>
+
+            <main >
+                <nav className={classes.LeftContent}>
+                    sasddasdsasadsadsadasdasdasdasdasdsadad
+                </nav>
+
+                <section className={classes.MainContent}>
+                    sdadsdsdadsasdasdadasdasdasdsadd
+                </section>
+                <form className={classes.RightContent}>
+                    sasddasdsa
+                    <div>
 
                     </div>
-
-                    <div className="classes.MiddleHead">
-                        <h1>Список доступных курсов</h1>
-                    </div>
-
-                    <div className="classes.RightHead">
-                        <MyButton onClick={() => setModal(true) }>
-                            Добавить список
-                        </MyButton>
-                    </div>
-                    <MyModal visible={modal} setVisible={setModal}>
-                        <AddKurs/>
-                    </MyModal>
-
-                </header>
-
-                <main className="classes.mainCourse">
-
-                    asdsassadasdasdsadsa
-                </main>
-
-
-
-            </div>
+                </form>
+            </main>
         </body>
     );
 };

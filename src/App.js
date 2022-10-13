@@ -30,9 +30,9 @@ const [modal, setModal] = useState(false);
       }> dsadsa
       </MyButton>*/
       /*<Userprofile/>*/
-      /*<FirstPage/>*/
+     /* <FirstPage/>*/
       <CoursePage/>
-      sasassdsadsa
+
 
   );
 }

@@ -23,15 +23,17 @@ const Index = () => {
                     <p className={classes.header_font}>EDUCATION LAB</p>
                 </div>
                 <div className={classes.RightHead}>
+                    <div className="classes.TwoButton">
 
-                    <MyButton onClick={() => setModal(true)}>
-                        Login
-                    </MyButton>
 
-                    <MyButton onClick={() => setModal2(true)}>
-                        Registration
-                    </MyButton>
+                        <MyButton onClick={() => setModal(true)}>
+                            Login
+                        </MyButton>
 
+                        <MyButton onClick={() => setModal2(true)}>
+                            Registration
+                        </MyButton>
+                    </div>
                     <MyModal visible={modal2} setVisible={setModal2}>
                         <Registration/>
                     </MyModal>
