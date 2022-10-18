@@ -1,10 +1,28 @@
-import React from 'react';
-import classes from './CoursePage.module.css';
+import React, {useState} from 'react';
+import classes from './Course.module.css';
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import ExitAccount from "../exitAccount/exitAccount";
 import MyButton from "../button/button";
+import MyModal from "../MyModal/MyModal";
+import AddKurs from "../AddKurs/AddKurs";
+
 
 const CoursePage = () => {
+    const [modal, setModal] = useState(false);
+
+    const [Course, setCourse] = useState()
+    const [CourseName, setCourseName] = useState('')
+    const [CourseDescription, setCourseDescription] = useState('')
+
+    const addNewCourse = (e) => {
+        e.preventDefault()
+        const newCourse = {
+            id: Date.now(),
+            CourseName,
+            CourseDescription
+        }
+        setCourse([...Course, newCourse])
+    }
     return (
         <body>
             <header>
@@ -28,12 +46,24 @@ const CoursePage = () => {
                 <section className={classes.MainContent}>
                     sdadsdsdadsasdasdadasdasdasdsadd
                 </section>
-                <form className={classes.RightContent}>
-                    sasddasdsa
-                    <div>
+                <div className={classes.RigthBlock}>
+                    <div className={classes.RightUpContent}>
+                        sasddasdsa
 
                     </div>
-                </form>
+                    <div className={classes.RightBottomContent}>
+                        <MyButton onClick={()=> setModal(true)}>
+                            Добавить курс
+                        </MyButton>
+                        <MyModal visible={modal} setVisible={setModal}>
+                            <AddKurs>
+
+                            </AddKurs>
+                        </MyModal>
+                    </div>
+
+                </div>
+
             </main>
         </body>
     );

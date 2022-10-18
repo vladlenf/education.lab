@@ -1,22 +1,37 @@
 import React from 'react';
 import classes from './AddKurs.module.css'
 import MyButton from "../button/button";
+import MyInput from "../MyInput/MyInput";
+import TextArea from "../TextArea/TextArea";
 
 const AddKurs = ({children,...props}) => {
+
     return (
         <div {...props} className={classes.AddKurs} >
             <div>
                 <h4>Введите название курса</h4>
-                <input type="text"/>
-                <h4>Описание курса</h4>
-                <textarea maxLength="1000">
+                <MyInput
+                    /*value={}
+                    onChange={e => setCourseName(e.target.value)}*/
+                    maxLength="40">
 
-                </textarea>
-                <h4>Прикрипить файл</h4>
+                </MyInput>
+                <h4>Описание курса</h4>
+                <TextArea
+                    /*value={CourseDescription}
+                    onChange={e => setCourseDescription(e.target.value)}*/
+                    rows="10"
+
+                    maxLength="300">
+
+
+                </TextArea>
+
+                {/*<h4>Прикрипить файл</h4>
                 <input type="file"/>
-                <MyButton>
+                <MyButton onClick={()=> }>
                     Добавить еще файл
-                </MyButton>
+                </MyButton>*/}
 
             </div>
             <MyButton>

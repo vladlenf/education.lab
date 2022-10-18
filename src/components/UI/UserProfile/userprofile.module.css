@@ -10,20 +10,20 @@ body{
 }
 nav {
     background-color: coral;
-    border: 2px black solid;
-    min-width: 5%;
+    border-right: 2px black solid;
+    /*min-width: 5%;*/
     max-height: 15em;
 }
 section {
     background-color: lavender;
     border: 2px white solid;
     min-height: 20em;
-    width: 75%;
+    /*width: 75%;*/
     height: 100vh;
 }
 
 form {
-    max-width: 10em;
+    /*max-width: 20%;*/
     max-height: 20em;
     background-color: darkorange;
 }
@@ -42,6 +42,8 @@ body{
 .footerU{
 
 }
+
+
 
 
 
