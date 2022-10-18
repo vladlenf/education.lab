@@ -11,8 +11,9 @@ function SaveUserData (){ /*Достаем данные из формы Реги
     let Date = document.getElementById('userDate').value;
     let Login = document.getElementById('userLogin').value;
     let Password = document.getElementById('userPassword').value;
-    let Category = document.getElementById('Category').value;
-    console.log(Name, LastName, Patronymic, Date, Login, Password, Category);
+    let Category = document.getElementsByName('category');
+    if(Category[0].checked==0) console.log(Name, LastName, Patronymic, Date, Login, Password,'Преподаватель')
+    else console.log(Name, LastName, Patronymic, Date, Login, Password,'Студент')
 }
 
 
@@ -39,10 +40,10 @@ const Registration = () => {
             <MyInput type="password" id="userPassword2"/>
             <div className={classes.category}>
                 <p><b>Категория</b>
-                <p>Ученик</p>
-                <MyInput type="radio" name="category" value={"student"} id="Category" />
+                <p>Студент</p>
+                <MyInput type="radio" name="category" value={"student"}  />
                 <p>Преподаватель</p>
-                <MyInput type="radio" name="category" value={"teacher"} id="Category"/>
+                <MyInput type="radio" name="category" value={"teacher"} />
                 </p>
             </div>
             <MyButton onClick={SaveUserData}>

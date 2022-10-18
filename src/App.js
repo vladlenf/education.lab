@@ -22,7 +22,7 @@ const [modal, setModal] = useState(false);
 
 
   return (
-/*<AddKurs/>*/
+      /*<AddKurs/>*/
       /*<AddNewTask/>*/
       /*<SendTaskToTeacher>ASDASD</SendTaskToTeacher>*/
       /*<MyButton onClick={
@@ -30,8 +30,8 @@ const [modal, setModal] = useState(false);
       }> dsadsa
       </MyButton>*/
       /*<Userprofile/>*/
-     /* <FirstPage/>*/
-      <CoursePage/>
+      <FirstPage/>
+      /*<CoursePage/>*/
 
 
   );

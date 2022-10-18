@@ -13,7 +13,7 @@ const Login = () => {
             <MyInput type="password"/>
             <div className={classes.btn}>
                 <MyButton>
-                    Login
+                    Войти
                 </MyButton>
             </div>
         </div>

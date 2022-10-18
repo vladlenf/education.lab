@@ -23,7 +23,7 @@ main{
 .LeftContent {
     display: flex;
     width: 20%;
-/*    border-right: 2px solid black;*/
+    /* border-right: 2px solid black;*/
 }
 .MainContent{
     display: flex;
