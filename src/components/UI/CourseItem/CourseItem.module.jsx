@@ -1,7 +1,0 @@
-.course {
-
-}
-
-.course__content{
-
-}

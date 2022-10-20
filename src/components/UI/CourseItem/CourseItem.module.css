@@ -1,0 +1,12 @@
+.course {
+    display: flex;
+    padding: 15px;
+    border: 2px solid teal;
+    margin:1em;
+    justify-content: space-between;
+    align-items: center;
+}
+.course__content {
+
+
+}

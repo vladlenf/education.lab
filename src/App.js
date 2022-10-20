@@ -4,7 +4,7 @@ import Index from "./components/UI/firstPage";
 import MyButton from "./components/UI/button/button";
 import Userprofile from "./components/UI/UserProfile/userprofile";
 import MyModal from "./components/UI/MyModal/MyModal";
-import AddCourse from "./components/UI/AddCourse/AddCourse";
+
 import AddNewTask from "./components/UI/AddNewTask/AddNewTask";
 import SendTaskToTeacher from "./components/UI/SendTaskToTeacher/SendTaskToTeacher";
 import Notification from "./components/UI/Notification/Notification";

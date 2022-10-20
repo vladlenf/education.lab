@@ -1,20 +1,19 @@
-/*
 import React from 'react';
-import classes from './CourseItem.module'
+import classes from './CourseItem.module.css'
 import MyButton from "../button/button";
 
 const CourseItem = (props) => {
 
     return (
-        <div className="classes.course">
-            <div className="classes.course__content">
-                <strong>{props.course.id}. {props.course.title}</strong>
+        <div className={classes.course}>
+            <div >
+                <strong>{props.number}. {props.course.title}</strong>
             </div>
-            <div>
+            <div className={classes.course__content}>
                 {props.course.body}
             </div>
             <div>
-                <MyButton onClick={() = props.remove(props.course)}>
+                <MyButton onClick={() => props.remove(props.course)}>
                     Удалить
                 </MyButton>
             </div>
@@ -22,4 +21,4 @@ const CourseItem = (props) => {
     );
 };
 
-export default CourseItem;*/
+export default CourseItem;

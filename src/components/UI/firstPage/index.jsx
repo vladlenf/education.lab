@@ -27,7 +27,7 @@ const Index = () => {
 
                         <div>
                             <MyButton onClick={() => setModal(true)}>
-                                Логин
+                                Войти
                             </MyButton>
                         </div>
                         <div>
