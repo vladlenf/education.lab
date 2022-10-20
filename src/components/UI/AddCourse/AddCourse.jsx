@@ -1,10 +1,10 @@
 import React from 'react';
-import classes from './AddKurs.module.css'
+import classes from './AddCourse.module.css'
 import MyButton from "../button/button";
 import MyInput from "../MyInput/MyInput";
 import TextArea from "../TextArea/TextArea";
 
-const AddKurs = ({children,...props}) => {
+const AddCourse = ({children,...props}) => {
 
     return (
         <div {...props} className={classes.AddKurs} >
@@ -41,4 +41,4 @@ const AddKurs = ({children,...props}) => {
     );
 };
 
-export default AddKurs;
+export default AddCourse;
