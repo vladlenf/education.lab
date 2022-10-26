@@ -10,6 +10,8 @@ import SendTaskToTeacher from "./components/UI/SendTaskToTeacher/SendTaskToTeach
 import Notification from "./components/UI/Notification/Notification";
 import FirstPage from "./pages/firstPage";
 import CoursePage from "./pages/CoursePage/CoursePage";
+import {BrowserRouter} from "react-router-dom";
+import AppRouter from "./components/AppRouter";
 
 
 
@@ -22,6 +24,7 @@ const [modal, setModal] = useState(false);
 
 
   return (
+
       /*<AddCourse/>*/
       /*<AddNewTask/>*/
       /*<SendTaskToTeacher>ASDASD</SendTaskToTeacher>*/
@@ -31,7 +34,12 @@ const [modal, setModal] = useState(false);
       </MyButton>*/
       /*<Userprofile/>*/
       /*/!*<*!/FirstPage/>*/
-      <CoursePage/>
+      <BrowserRouter>
+
+        <AppRouter/>
+      </BrowserRouter>
+
+
 
 
   );

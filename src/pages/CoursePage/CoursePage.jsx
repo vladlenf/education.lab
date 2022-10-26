@@ -1,17 +1,14 @@
-import React, {useState} from 'react';
-import classes from './Course.module.css';
+import React from 'react';
+import {useState} from "react";
+import {useCourses} from "../../hooks/useCourses";
 import BurgerMenu from "../../components/UI/BurgerMenu/BurgerMenu";
 import ExitAccount from "../../components/UI/exitAccount/exitAccount";
-import MyButton from "../../components/UI/button/button";
-import Login from "../../components/UI/Login/Login";
-import MyModal from "../../components/UI/MyModal/MyModal";
 import CourseList from "../../components/UI/CourseList/CourseList";
-import CourseItem from "../../components/UI/CourseItem/CourseItem";
+import MyButton from "../../components/UI/button/button";
+import MyModal from "../../components/UI/MyModal/MyModal";
 import CourseForm from "../../components/UI/CourseForm/CourseForm";
-import MySelect from "../../components/UI/MySelect/MySelect";
-import MyInput from "../../components/UI/MyInput/MyInput";
-import {useCourses} from '../../hooks/useCourses'
-import CourseFilter from '../../components/UI/CourseFilter'
+import classes from "./Course.module.css";
+import CourseFilter from "../../components/UI/CourseFilter";
 
 const CoursePage = () => {
 
@@ -94,3 +91,4 @@ const CoursePage = () => {
 };
 
 export default CoursePage;
+
