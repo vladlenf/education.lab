@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import MyButton from "../button/button";
 import MyInput from "../MyInput/MyInput";
 import classes from "../Login/Login.module.css";
-import CoursePage from "../CoursePage/CoursePage";
+import CoursePage from "../../../pages/CoursePage/CoursePage";
 
 const Login = () => {
     const [login, setLogin] = useState('')

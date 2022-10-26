@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import classes from './index.module.css'
-import MyButton from "../button/button";
-import BurgerRef from "../BurgerMenu/BurgerRef";
-import MyModal from "../MyModal/MyModal";
-import Registration from "../Registration/Registration";
-import Login from "../Login/Login";
+import MyButton from "../../components/UI/button/button";
+import BurgerRef from "../../components/UI/BurgerMenu/BurgerRef";
+import MyModal from "../../components/UI/MyModal/MyModal";
+import Registration from "../../components/UI/Registration/Registration";
+import Login from "../../components/UI/Login/Login";
 
 
 

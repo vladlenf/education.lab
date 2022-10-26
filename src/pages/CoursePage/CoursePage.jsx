@@ -1,28 +1,36 @@
 import React, {useState} from 'react';
 import classes from './Course.module.css';
-import BurgerMenu from "../BurgerMenu/BurgerMenu";
-import ExitAccount from "../exitAccount/exitAccount";
-import MyButton from "../button/button";
-import Login from "../Login/Login";
-import MyModal from "../MyModal/MyModal";
-import CourseList from "../CourseList/CourseList";
-import CourseItem from "../CourseItem/CourseItem";
-import CourseForm from "../CourseForm/CourseForm";
-import MySelect from "../MySelect/MySelect";
-import MyInput from "../MyInput/MyInput";
-import {useCourses} from '../../../hooks/useCourses'
-import CourseFilter from '../CourseFilter'
+import BurgerMenu from "../../components/UI/BurgerMenu/BurgerMenu";
+import ExitAccount from "../../components/UI/exitAccount/exitAccount";
+import MyButton from "../../components/UI/button/button";
+import Login from "../../components/UI/Login/Login";
+import MyModal from "../../components/UI/MyModal/MyModal";
+import CourseList from "../../components/UI/CourseList/CourseList";
+import CourseItem from "../../components/UI/CourseItem/CourseItem";
+import CourseForm from "../../components/UI/CourseForm/CourseForm";
+import MySelect from "../../components/UI/MySelect/MySelect";
+import MyInput from "../../components/UI/MyInput/MyInput";
+import {useCourses} from '../../hooks/useCourses'
+import CourseFilter from '../../components/UI/CourseFilter'
 
 const CoursePage = () => {
 
     const [courses,setCourses] = useState([
-
+        {id:1, title:'asdas', body:'asdas'},
+        {id:2, title:'sadd', body:'asdddas'},
+        {id:3, title:'asfasdas', body:'asdas'},
+        {id:4, title:'asfsdadas', body:'asdfsadas'},
+        {id:5, title:'affassdas', body:'asdas'},
+        {id:6, title:'asfasddas', body:'asdfsadas'},
+        {id:7, title:'asdas', body:'asdas'},
+        {id:8, title:'asdfdasas', body:'asdfdsaas'},
+        {id:9, title:'asdas', body:'asdafadss'},
+        {id:10, title:'afsdasdas', body:'asdas'},
+        {id:11, title:'asdas', body:'asdfdsaas'}
     ])
     const [modal,setModal] = useState(false)
     const [filter, setFilter] = useState({sort: '', query: ''})
     const sortedAndSearchedCourses = useCourses(courses, filter.sort, filter.query);
-
-
 
     const createCourse = (newCourse) => { /*Создание нового курса*/
         setCourses([...courses, newCourse])
