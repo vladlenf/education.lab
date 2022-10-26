@@ -8,23 +8,28 @@ import MyModal from "../MyModal/MyModal";
 import CourseList from "../CourseList/CourseList";
 import CourseItem from "../CourseItem/CourseItem";
 import CourseForm from "../CourseForm/CourseForm";
-
+import MySelect from "../MySelect/MySelect";
+import MyInput from "../MyInput/MyInput";
+import {useCourses} from '../../../hooks/useCourses'
+import CourseFilter from '../CourseFilter'
 
 const CoursePage = () => {
 
     const [courses,setCourses] = useState([
-        {id:1,title:'Курс по React', body:'Изучаем React'},
-        {id:2, title:'Курс по Python', body:'Изучаем Python'},
-        {id:3, title:'Купс по PHP', body: 'Изучаем PHP'}
-    ])
-    const [modal,setModal] = useState()
 
-    const createCourse = (newCourse) => {
+    ])
+    const [modal,setModal] = useState(false)
+    const [filter, setFilter] = useState({sort: '', query: ''})
+    const sortedAndSearchedCourses = useCourses(courses, filter.sort, filter.query);
+
+
+
+    const createCourse = (newCourse) => { /*Создание нового курса*/
         setCourses([...courses, newCourse])
         setModal(false)
     }
 
-    const removeCourse = (course) => {
+    const removeCourse = (course) => { /*Удаление курса*/
         setCourses(courses.filter(p => p.id !== course.id))
     }
 
@@ -49,7 +54,13 @@ const CoursePage = () => {
                 </nav>
 
                 <div className={classes.MainContent}>
-                    <CourseList courses={courses} remove={removeCourse}></CourseList>
+                    <hr style={{margin: '15px 0'}}/>
+                    <CourseFilter
+                        filter={filter}
+                        setFilter={setFilter}
+                    />
+
+                    <CourseList courses={sortedAndSearchedCourses} remove={removeCourse}></CourseList>
                 </div>
                 <div className={classes.RightContent}>
 

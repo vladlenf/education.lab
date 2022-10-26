@@ -1,12 +1,19 @@
 .course {
-    display: flex;
-    padding: 15px;
+    padding: 2%;
     border: 2px solid teal;
     margin:1em;
-    justify-content: space-between;
-    align-items: center;
+}
+.course__p {
+    display: flex;
 }
 .course__content {
-
+    display: flex;
+    padding: 1%;
+}
+.btns {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-evenly;
 
 }
