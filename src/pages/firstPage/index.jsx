@@ -10,8 +10,8 @@ import Login from "../../components/UI/Login/Login";
 
 const Index = () => {
 
-    const [modal, setModal] = useState(false);
-    const [modal2, setModal2] = useState(false);
+    const [modal, setModal] = useState(false); /*Модальное окно входа в аккаунт*/
+    const [modal2, setModal2] = useState(false); /*Модальное окно регистрации аккаунта*/
     return (
         <body>
 
@@ -36,12 +36,12 @@ const Index = () => {
                             </MyButton>
                         </div>
                     </div>
-                    <MyModal visible={modal2} setVisible={setModal2}>
-                        <Registration/>
-                    </MyModal>
-
                     <MyModal visible={modal} setVisible={setModal}>
                         <Login/>
+                    </MyModal>
+
+                    <MyModal visible={modal2} setVisible={setModal2}>
+                        <Registration/>
                     </MyModal>
 
                 </div>

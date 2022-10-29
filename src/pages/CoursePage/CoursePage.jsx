@@ -3,7 +3,7 @@ import {useState} from "react";
 import {useCourses} from "../../hooks/useCourses";
 import BurgerMenu from "../../components/UI/BurgerMenu/BurgerMenu";
 import ExitAccount from "../../components/UI/exitAccount/exitAccount";
-import CourseList from "../../components/UI/CourseList/CourseList";
+import CourseList from "../../components/UI/CourseList";
 import MyButton from "../../components/UI/button/button";
 import MyModal from "../../components/UI/MyModal/MyModal";
 import CourseForm from "../../components/UI/CourseForm/CourseForm";
@@ -11,7 +11,7 @@ import classes from "./Course.module.css";
 import CourseFilter from "../../components/UI/CourseFilter";
 
 const CoursePage = () => {
-
+    /*Массив курсов состоящий из объектов*/
     const [courses,setCourses] = useState([
         {id:1, title:'asdas', body:'asdas'},
         {id:2, title:'sadd', body:'asdddas'},
@@ -25,9 +25,9 @@ const CoursePage = () => {
         {id:10, title:'afsdasdas', body:'asdas'},
         {id:11, title:'asdas', body:'asdfdsaas'}
     ])
-    const [modal,setModal] = useState(false)
-    const [filter, setFilter] = useState({sort: '', query: ''})
-    const sortedAndSearchedCourses = useCourses(courses, filter.sort, filter.query);
+    const [modal,setModal] = useState(false) /*Модальное окно, по умолчанию выключено*/
+    const [filter, setFilter] = useState({sort: '', query: ''}) /*Фильтр сортировки курсов*/
+    const sortedAndSearchedCourses = useCourses(courses, filter.sort, filter.query); /*Сортированный список курсов (Кастомный хук)*/
 
     const createCourse = (newCourse) => { /*Создание нового курса*/
         setCourses([...courses, newCourse])
@@ -80,7 +80,6 @@ const CoursePage = () => {
                 </div>
                 <MyModal visible={modal} setVisible={setModal}>
                     <CourseForm create={createCourse}/>
-
                 </MyModal>
 
             </main>

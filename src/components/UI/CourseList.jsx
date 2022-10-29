@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import CourseItem from "../CourseItem/CourseItem";
+import CourseItem from "./CourseItem/CourseItem";
 
 const CourseList = ({courses, remove}) => {
 
