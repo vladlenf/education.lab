@@ -6,6 +6,7 @@ export default class getUsers {
         try {
             const response = await axios.get('https://educationlab.online/check_users.php/')
             return response.data
+            console.log("ВСЕ В ПОРЯДКЕ!")
         }
         catch (e){
             console.log(e);

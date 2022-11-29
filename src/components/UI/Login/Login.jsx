@@ -16,13 +16,20 @@ const SignIn = async (e) => {
     userData.append("login", login);
     userData.append("password", password);
     const response = await userLogin.postAll(userData);
-    console.log(response)
-    if(response.access === 1)
-        console.log(response)
-    JSON.parse(response)
+    console.log(response);
+    if(response.access === 'allowed'){
+        document.location.href = "http://localhost:3000/courses";
+    } else {
+        alert('ВЫЙДИ И ЗАЙДИ НОРМАЛЬНА!')
+    }
+
+
+
+
+
     /*if(response.filter( p=> p.access==='allowed'){
         document.location.href = "http://localhost:3000/courses";
-    } else alert("ВЫЙДИ И ЗАЙДИ НОРМАЛЬНА!")*/
+    } else alert("")*/
     e.preventDefault()
 }
 

@@ -29,7 +29,7 @@ main{
     flex-direction: column;
     background-color: lavender;
     border: 2px black solid;
-    height: 100vh;
+    height: 100%;
     width: 100%;
 
 }

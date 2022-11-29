@@ -9,6 +9,7 @@ import MyModal from "../../components/UI/MyModal/MyModal";
 import CourseForm from "../../components/UI/CourseForm/CourseForm";
 import classes from "./Course.module.css";
 import CourseFilter from "../../components/CourseFilter";
+import userLogin from "../../components/API/Login";
 
 const CoursePage = () => {
     /*Массив курсов состоящий из объектов*/
