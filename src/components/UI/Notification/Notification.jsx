@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './Notification.module.css'
-const Notification = ({children, flag, ...props}) => {
+const Notification = ({children, ...props},flag) => {
     if(flag == 1){
         console.log("232");
         return (

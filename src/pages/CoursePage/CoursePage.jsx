@@ -8,7 +8,7 @@ import MyButton from "../../components/UI/button/button";
 import MyModal from "../../components/UI/MyModal/MyModal";
 import CourseForm from "../../components/UI/CourseForm/CourseForm";
 import classes from "./Course.module.css";
-import CourseFilter from "../../components/UI/CourseFilter";
+import CourseFilter from "../../components/CourseFilter";
 
 const CoursePage = () => {
     /*Массив курсов состоящий из объектов*/

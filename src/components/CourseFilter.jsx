@@ -1,6 +1,6 @@
 import React from 'react';
-import MyInput from "./MyInput/MyInput";
-import MySelect from "./MySelect/MySelect";
+import MyInput from "./UI/MyInput/MyInput";
+import MySelect from "./UI/MySelect/MySelect";
 
 
 const CourseFilter = ({filter, setFilter}) => {

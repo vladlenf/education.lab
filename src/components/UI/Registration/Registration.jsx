@@ -1,10 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import MyInput from "../MyInput/MyInput";
 import classes from './Registration.module.css'
 import MyButton from "../button/button";
 import Notification from "../Notification/Notification";
+import MyModal from "../MyModal/MyModal";
+import {useFetchUsers} from '../../../hooks/useFetchUsers'
+
+
 
 function SaveUserData (){ /*Достаем данные из формы Регистрация*/
+    let users=useFetchUsers();
+    console.log(users);
     let Name = document.getElementById('userName').value;
     let LastName = document.getElementById('userLastName').value;
     let Patronymic = document.getElementById('userPatronymic').value;
@@ -14,11 +20,14 @@ function SaveUserData (){ /*Достаем данные из формы Реги
     let Category = document.getElementsByName('category');
     if(Category[0].checked==0) console.log(Name, LastName, Patronymic, Date, Login, Password,'Преподаватель')
     else console.log(Name, LastName, Patronymic, Date, Login, Password,'Студент')
+
 }
 
 
 
+
 const Registration = () => {
+
     return (
 
         <div>
@@ -46,11 +55,9 @@ const Registration = () => {
                 <MyInput type="radio" name="category" value={"teacher"} />
                 </p>
             </div>
-            <MyButton onClick={SaveUserData}>
+            <MyButton onClick={() => SaveUserData()}>
                 Зарегистрироваться
             </MyButton>
-
-
         </div>
     );
 };
