@@ -4,23 +4,44 @@ import classes from './Registration.module.css'
 import MyButton from "../button/button";
 import Notification from "../Notification/Notification";
 import MyModal from "../MyModal/MyModal";
-import {useFetchUsers} from '../../../hooks/useFetchUsers'
+import getUsers from "../../API/getUsers";
+import axios from "axios";
+import registrationUsers from "../../API/registrationUser";
 
 
 
-function SaveUserData (){ /*Достаем данные из формы Регистрация*/
-    let users=useFetchUsers();
+
+async function SaveUserData() { /*Достаем данные из формы Регистрация*/
+    const users = await getUsers.getAll();
     console.log(users);
     let Name = document.getElementById('userName').value;
     let LastName = document.getElementById('userLastName').value;
     let Patronymic = document.getElementById('userPatronymic').value;
     let Date = document.getElementById('userDate').value;
+    let userEmail = document.getElementById('userEmail').value;
     let Login = document.getElementById('userLogin').value;
     let Password = document.getElementById('userPassword').value;
     let Category = document.getElementsByName('category');
-    if(Category[0].checked==0) console.log(Name, LastName, Patronymic, Date, Login, Password,'Преподаватель')
-    else console.log(Name, LastName, Patronymic, Date, Login, Password,'Студент')
-
+    let a=0;
+    if (Category[0].checked == 0){
+        a=1;
+        console.log(Name, LastName, Patronymic, Date, Login, Password, a)
+    }
+    else{
+        a=0;
+        console.log(Name, LastName, Patronymic, Date, Login, Password, a)
+    }
+    const userData = new FormData()
+    userData.append("0",Name);
+    userData.append("1",LastName);
+    userData.append("2",Patronymic);
+    userData.append("3",Date);
+    userData.append("4",userEmail);
+    userData.append("5",a);
+    userData.append("6",Login);
+    userData.append("7",Password);
+    console.log(userData);
+    const r = await registrationUsers.postAll(userData);
 }
 
 

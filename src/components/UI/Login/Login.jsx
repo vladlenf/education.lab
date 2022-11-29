@@ -5,32 +5,43 @@ import classes from "../Login/Login.module.css";
 import CoursePage from "../../../pages/CoursePage/CoursePage";
 import router from "react-router-dom/es/Router";
 import {Link} from "react-router-dom";
+import userLogin from "../../API/Login";
+
+
+const SignIn = async (e) => {
+
+    const login = document.getElementById('login').value;
+    const password = document.getElementById('password').value;
+    const userData = new FormData()
+    userData.append("login", login);
+    userData.append("password", password);
+    const response = await userLogin.postAll(userData);
+    console.log(response)
+    if(response.access === 1)
+        console.log(response)
+    JSON.parse(response)
+    /*if(response.filter( p=> p.access==='allowed'){
+        document.location.href = "http://localhost:3000/courses";
+    } else alert("ВЫЙДИ И ЗАЙДИ НОРМАЛЬНА!")*/
+    e.preventDefault()
+}
 
     const Login = () => {
-        const [login, setLogin] = useState('')
-        const [password, setPassword] = useState('')
-    const SignIn = (e) =>{
-        e.preventDefault()
-        document.location.href ="http://localhost:3000/courses";
-    }
+
     return (
         <div>
             <h4>Логин</h4>
             <MyInput
                 type="text"
-                value={login}
-                onChange={(e) => setLogin(e.target.value)}/>
+                id="login"></MyInput>
             <h4>Пароль</h4>
             <MyInput
                 type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}/>
+                id="password"></MyInput>
             <div className={classes.btn}>
                 <MyButton onClick={SignIn}>
-
                     Войти
                 </MyButton>
-
             </div>
         </div>
     );
