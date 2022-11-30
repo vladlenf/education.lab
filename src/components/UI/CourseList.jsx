@@ -12,8 +12,8 @@ const CourseList = ({courses, remove}) => {
     }
     return (
         <div>
-            {courses.map((course, index) =>
-                <CourseItem number={index+1} course={course} key={course.id} remove={remove}/>
+            {courses.map((course) =>
+                <CourseItem number={course.id} course={course} key={course.id} remove={remove}/>
                 )}
 
         </div>

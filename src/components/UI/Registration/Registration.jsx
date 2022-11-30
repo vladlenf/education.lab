@@ -7,20 +7,14 @@ import MyModal from "../MyModal/MyModal";
 import getUsers from "../../API/getUsers";
 import axios from "axios";
 import registrationUsers from "../../API/registrationUser";
+import {useInput} from "../../../hooks/useValidations"
 
 
 
-
-async function SaveUserData() { /*Достаем данные из формы Регистрация*/
+async function SaveUserData(Name, LastName, Patronymic, Date, userEmail, Login, Password) { /*Достаем данные из формы Регистрация*/
     const users = await getUsers.getAll();
     console.log(users);
-    let Name = document.getElementById('userName').value;
-    let LastName = document.getElementById('userLastName').value;
-    let Patronymic = document.getElementById('userPatronymic').value;
-    let Date = document.getElementById('userDate').value;
-    let userEmail = document.getElementById('userEmail').value;
-    let Login = document.getElementById('userLogin').value;
-    let Password = document.getElementById('userPassword').value;
+
     let Category = document.getElementsByName('category');
     let a=0;
     if (Category[0].checked == 0){
@@ -32,7 +26,7 @@ async function SaveUserData() { /*Достаем данные из формы Р
         console.log(Name, LastName, Patronymic, Date, Login, Password, a)
     }
     const userData = new FormData()
-    userData.append("0",Name);
+    userData.append("0",Name.value);
     userData.append("1",LastName);
     userData.append("2",Patronymic);
     userData.append("3",Date);
@@ -41,42 +35,96 @@ async function SaveUserData() { /*Достаем данные из формы Р
     userData.append("6",Login);
     userData.append("7",Password);
     console.log(userData);
-    const r = await registrationUsers.postAll(userData);
+    /*const r = await registrationUsers.postAll(userData);*/
+    console.log(Name.value, LastName.value, Patronymic.value, Date.value, userEmail.value, Login.value, Password.value, a)
 }
 
-
-
-
 const Registration = () => {
+    const Name = useInput('', {isEmpty: true, minLength: 1, maxLength: 35})
+    const LastName = useInput('', {isEmpty: true, minLength: 1, maxLength: 35})
+    const Patronymic = useInput('', {isEmpty: true, minLength: 1, maxLength: 35})
+    const Date = useInput('', {isEmpty: true})
+    const userEmail = useInput('', {isEmpty: true, minLength: 1, maxLength: 40, isEmail:true})
+    const Login = useInput('', {isEmpty: true, minLength: 1, maxLength: 40})
+    const Password = useInput({}, {isEmpty: true, minLength: 1, maxLength: 40, repeatPassword: false})
+    const Password2 = useInput('',{})
 
     return (
 
         <div>
             <h4>Имя</h4>
-            <MyInput type="text" id="userName"/>
+            {(Name.isDirty && Name.isEmpty) && <div style={{color:'red'}}>Поле не может быть пустым</div>}
+            <MyInput
+                type="text"
+                onChange={e => Name.onChange(e)}
+                value={Name.value}
+                onBlur={e => Name.onBlur(e)}/>
             <h4>Фамилия</h4>
-            <MyInput type="text" id="userLastName"/>
+            {(LastName.isDirty && LastName.isEmpty) && <div style={{color:'red'}}>Поле не может быть пустым</div>}
+            <MyInput
+                type="text"
+                onChange={e => LastName.onChange(e)}
+                value={LastName.value}
+                onBlur={e => LastName.onBlur(e)}
+            />
             <h4>Отчество</h4>
-            <MyInput type="text" id="userPatronymic"/>
+            {(Patronymic.isDirty && Patronymic.isEmpty) && <div style={{color:'red'}}>Поле не может быть пустым</div>}
+            <MyInput
+                type="text"
+                onChange={e => Patronymic.onChange(e)}
+                value={Patronymic.value}
+                onBlur={e => Patronymic.onBlur(e)}
+            />
             <h4>Дата рождения </h4>
-            <MyInput type="date" id="userDate"/>
-            <h4>Придумайте логин</h4>
-            <MyInput type="text" id="userLogin"/>
+            {(Date.isDirty && Date.isEmpty) && <div style={{color:'red'}}>Поле не может быть пустым</div>}
+            <MyInput
+                type="date"
+                onChange={e => Date.onChange(e)}
+                value={Date.value}
+                onBlur={e => Date.onBlur(e)}
+            />
             <h4>Электронная почта</h4>
-            <MyInput type="email" id="userEmail"/>
+            {(userEmail.isDirty && userEmail.isEmpty) && <div style={{color:'red'}}>Поле не может быть пустым</div>}
+            {(userEmail.isDirty && userEmail.emailError) && <div style={{color:'red'}}>Электронная почта некоректна</div>}
+            <MyInput
+                onChange={e => userEmail.onChange(e)}
+                value={userEmail.value}
+                onBlur={e => userEmail.onBlur(e)}
+            />
+            <h4>Придумайте логин</h4>
+            {(Login.isDirty && Login.isEmpty) && <div style={{color:'red'}}>Поле не может быть пустым</div>}
+            <MyInput
+                type="text"
+                onChange={e => Login.onChange(e)}
+                value={Login.value}
+                onBlur={e => Login.onBlur(e)}
+            />
             <h4>Пароль</h4>
-            <MyInput type="password" id="userPassword"/>
+            {(Password.isDirty && Password.isEmpty) && <div style={{color:'red'}}>Поле не может быть пустым</div>}
+            {(Password.isDirty && Password.repeatPasswordError) && <div style={{color:'red'}}>Поле не может быть пустым</div>}
+            <MyInput
+                type="password"
+                onChange={e => Password.onChange(e)}
+                value={Password.value}
+                onBlur={e => Password.onBlur(e)}
+            />
             <h4>Пароль ещё раз</h4>
-            <MyInput type="password" id="userPassword2"/>
+            {(Password2.isDirty && Password2.isEmpty) && <div style={{color:'red'}}>Поле не может быть пустым</div>}
+            <MyInput
+                type="password"
+                onChange={e => Password2.onChange(e)}
+                value={Password2.value}
+                onBlur={e => Password2.onBlur(e)}
+            />
             <div className={classes.category}>
                 <p><b>Категория</b>
                 <p>Студент</p>
-                <MyInput type="radio" name="category" value={"student"}  />
+                <MyInput type="radio" name="category" value={"student"} checked/>
                 <p>Преподаватель</p>
-                <MyInput type="radio" name="category" value={"teacher"} />
+                <MyInput type="radio" name="category" value={"teacher"}/>
                 </p>
             </div>
-            <MyButton onClick={() => SaveUserData()}>
+            <MyButton onClick={() => SaveUserData(Name, LastName, Patronymic, Date, userEmail, Login, Password)}>
                 Зарегистрироваться
             </MyButton>
         </div>

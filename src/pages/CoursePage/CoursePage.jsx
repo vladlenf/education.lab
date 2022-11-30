@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useState} from "react";
 import {useCourses} from "../../hooks/useCourses";
 import BurgerMenu from "../../components/UI/BurgerMenu/BurgerMenu";
@@ -10,33 +10,44 @@ import CourseForm from "../../components/UI/CourseForm/CourseForm";
 import classes from "./Course.module.css";
 import CourseFilter from "../../components/CourseFilter";
 import userLogin from "../../components/API/Login";
+import getCourses from "../../components/API/getCourses";
 
 const CoursePage = () => {
     /*Массив курсов состоящий из объектов*/
     const [courses,setCourses] = useState([
-        {id:1, title:'asdas', body:'asdas'},
-        {id:2, title:'sadd', body:'asdddas'},
-        {id:3, title:'asfasdas', body:'asdas'},
-        {id:4, title:'asfsdadas', body:'asdfsadas'},
-        {id:5, title:'affassdas', body:'asdas'},
-        {id:6, title:'asfasddas', body:'asdfsadas'},
-        {id:7, title:'asdas', body:'asdas'},
-        {id:8, title:'asdfdasas', body:'asdfdsaas'},
-        {id:9, title:'asdas', body:'asdafadss'},
-        {id:10, title:'afsdasdas', body:'asdas'},
-        {id:11, title:'asdas', body:'asdfdsaas'}
+        {id:1, title:'c[k][1]', body:'c[k][2]'}
     ])
     const [modal,setModal] = useState(false) /*Модальное окно, по умолчанию выключено*/
     const [filter, setFilter] = useState({sort: '', query: ''}) /*Фильтр сортировки курсов*/
     const sortedAndSearchedCourses = useCourses(courses, filter.sort, filter.query); /*Сортированный список курсов (Кастомный хук)*/
 
+
     const createCourse = (newCourse) => { /*Создание нового курса*/
+        console.log(newCourse)
+        console.log("1")
         setCourses([...courses, newCourse])
         setModal(false)
     }
 
+
     const removeCourse = (course) => { /*Удаление курса*/
         setCourses(courses.filter(p => p.id !== course.id))
+    }
+
+    useEffect(()=> {
+        fetchCourses()
+    },[])
+
+
+    async function fetchCourses() {
+        const c = await getCourses.getAll();
+        for (let k = 0; k < c.length; k++) {
+            /*console.log(k)*/
+            let d={id:c[k][0], title:c[k][1], body:c[k][2]}
+            /*console.log(d)*/
+            createCourse({id:c[k][0], title:c[k][1], body:c[k][2]})
+        }
+
     }
 
     return (
@@ -44,7 +55,7 @@ const CoursePage = () => {
             <header>
                 <BurgerMenu/>
                 <div>
-
+                    <MyButton onClick={() => fetchCourses()}/>
                 </div>
                 <div className={classes.MiddleHead}>
                     <h1>Список доступных курсов</h1>
@@ -55,6 +66,7 @@ const CoursePage = () => {
             </header>
 
             <main >
+
                 <nav className={classes.LeftContent}>
                     sasddasdsasadsadsadasdasdasdasdasdsadad
                 </nav>
@@ -65,7 +77,6 @@ const CoursePage = () => {
                         filter={filter}
                         setFilter={setFilter}
                     />
-
                     <CourseList courses={sortedAndSearchedCourses} remove={removeCourse}></CourseList>
                 </div>
                 <div className={classes.RightContent}>
