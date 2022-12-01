@@ -17,6 +17,7 @@ const CoursePage = () => {
     const [courses,setCourses] = useState([
         {id:1, title:'c[k][1]', body:'c[k][2]'}
     ])
+
     const [modal,setModal] = useState(false) /*Модальное окно, по умолчанию выключено*/
     const [filter, setFilter] = useState({sort: '', query: ''}) /*Фильтр сортировки курсов*/
     const sortedAndSearchedCourses = useCourses(courses, filter.sort, filter.query); /*Сортированный список курсов (Кастомный хук)*/
@@ -43,11 +44,16 @@ const CoursePage = () => {
         const c = await getCourses.getAll();
         for (let k = 0; k < c.length; k++) {
             /*console.log(k)*/
-            let d={id:c[k][0], title:c[k][1], body:c[k][2]}
+            let d={id:c[k][0].toString(), title:c[k][1].toString(), body:c[k][2].toString()}
             /*console.log(d)*/
             createCourse({id:c[k][0], title:c[k][1], body:c[k][2]})
         }
-
+        createCourse({id:c[0][0], title:c[0][1], body:c[0][2]})
+        setCourses([...courses,{id:2, title:'c[k][1]', body:'c[k][2]'}])
+        setCourses([...courses,{id:3, title:'c[k][1]', body:'c[k][2]'}])
+        setCourses([...courses,{id:4, title:'c[k][1]', body:'c[k][2]'}])
+        setCourses([...courses,{id:5, title:'c[k][1]', body:'c[k][2]'}])
+        console.log(courses)
     }
 
     return (
