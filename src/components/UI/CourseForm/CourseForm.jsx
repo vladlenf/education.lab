@@ -13,6 +13,11 @@ const CourseForm = ({create, remove}) => {
         }
         create(newCourse)
         setCourse({title: '', body: ''})
+
+        const courseData = new FormData()
+        /*courseData.append("course_name",title);
+        courseData.append("course_description",body);
+        courseData.append("login",body);*/
     }
     return (
         <form className={classes.addNewCourse}>

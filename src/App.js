@@ -1,5 +1,5 @@
 import classes from'./App.css';
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import Index from "./pages/firstPage";
 import MyButton from "./components/UI/button/button";
 import Userprofile from "./components/UI/UserProfile/userprofile";
@@ -12,6 +12,8 @@ import FirstPage from "./pages/firstPage";
 import CoursePage from "./pages/CoursePage/CoursePage";
 import {BrowserRouter} from "react-router-dom";
 import AppRouter from "./components/AppRouter";
+import {useCourses} from "./hooks/useCourses";
+import {LoginContext} from "./context/login";
 
 
 
@@ -21,8 +23,8 @@ function FormRegistration() {
 
 function App() {
 const [modal, setModal] = useState(false);
-
-
+const [userLogin,setUserLogin] = useState('')
+    console.log(userLogin)
   return (
 
       /*<AddCourse/>*/
@@ -34,10 +36,18 @@ const [modal, setModal] = useState(false);
       </MyButton>*/
       /*<Userprofile/>*/
       /*/!*<*!/FirstPage/>*/
-      <BrowserRouter>
 
-        <AppRouter/>
-      </BrowserRouter>
+
+      <LoginContext.Provider value={{
+          userLogin,
+          setUserLogin
+      }}>
+          <BrowserRouter>
+
+              <AppRouter/>
+          </BrowserRouter>
+      </LoginContext.Provider>
+
 
 
 

@@ -20,8 +20,8 @@ main{
 }
 
 .LeftContent {
-    display: flex;
-    width: 20%;
+    text-align: center;
+    width: 15%;
     /* border-right: 2px solid black;*/
 }
 .MainContent{

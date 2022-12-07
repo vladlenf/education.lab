@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {useState} from "react";
 import {useCourses} from "../../hooks/useCourses";
 import BurgerMenu from "../../components/UI/BurgerMenu/BurgerMenu";
@@ -11,58 +11,52 @@ import classes from "./Course.module.css";
 import CourseFilter from "../../components/CourseFilter";
 import userLogin from "../../components/API/Login";
 import getCourses from "../../components/API/getCourses";
+import axios from "axios";
+import {LoginContext} from "../../context/login";
 
 const CoursePage = () => {
+    const {userLogin, setUserLogin} = useContext(LoginContext);
+    console.log(userLogin)
+
     /*Массив курсов состоящий из объектов*/
     const [courses,setCourses] = useState([
-        {id:1, title:'c[k][1]', body:'c[k][2]'}
+
     ])
 
     const [modal,setModal] = useState(false) /*Модальное окно, по умолчанию выключено*/
     const [filter, setFilter] = useState({sort: '', query: ''}) /*Фильтр сортировки курсов*/
     const sortedAndSearchedCourses = useCourses(courses, filter.sort, filter.query); /*Сортированный список курсов (Кастомный хук)*/
 
-
     const createCourse = (newCourse) => { /*Создание нового курса*/
-        console.log(newCourse)
-        console.log("1")
         setCourses([...courses, newCourse])
         setModal(false)
     }
-
 
     const removeCourse = (course) => { /*Удаление курса*/
         setCourses(courses.filter(p => p.id !== course.id))
     }
 
-    useEffect(()=> {
+    useEffect( ()=>{
         fetchCourses()
+        console.log(userLogin)
     },[])
 
-
     async function fetchCourses() {
-        const c = await getCourses.getAll();
-        for (let k = 0; k < c.length; k++) {
-            /*console.log(k)*/
-            let d={id:c[k][0].toString(), title:c[k][1].toString(), body:c[k][2].toString()}
-            /*console.log(d)*/
-            createCourse({id:c[k][0], title:c[k][1], body:c[k][2]})
-        }
-        createCourse({id:c[0][0], title:c[0][1], body:c[0][2]})
-        setCourses([...courses,{id:2, title:'c[k][1]', body:'c[k][2]'}])
-        setCourses([...courses,{id:3, title:'c[k][1]', body:'c[k][2]'}])
-        setCourses([...courses,{id:4, title:'c[k][1]', body:'c[k][2]'}])
-        setCourses([...courses,{id:5, title:'c[k][1]', body:'c[k][2]'}])
-        console.log(courses)
-    }
 
+        /*const response = await axios.get('https://jsonplaceholder.typicode.com/posts/')
+        setCourses(response.data)*/
+        const fetchedcourses = await getCourses.getAll();
+        setCourses(fetchedcourses)
+        console.log(fetchedcourses)
+
+
+    }
+    const vk='https://www.vk.com'
+    console.log(userLogin)
     return (
         <body>
             <header>
                 <BurgerMenu/>
-                <div>
-                    <MyButton onClick={() => fetchCourses()}/>
-                </div>
                 <div className={classes.MiddleHead}>
                     <h1>Список доступных курсов</h1>
                 </div>
@@ -73,9 +67,15 @@ const CoursePage = () => {
 
             <main >
 
-                <nav className={classes.LeftContent}>
-                    sasddasdsasadsadsadasdasdasdasdasdsadad
-                </nav>
+                <div className={classes.LeftContent}>
+                    <strong>Ваши подписки:</strong>
+                    {courses.map(course =>{
+                        return (
+                            <p><a href={vk}></a>{course.title}</p>
+                        )
+                    })
+                    }
+                </div>
 
                 <div className={classes.MainContent}>
                     <hr style={{margin: '15px 0'}}/>

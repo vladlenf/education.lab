@@ -1,9 +1,10 @@
 import React from 'react';
 import classes from './CourseItem.module.css'
 import MyButton from "../button/button";
+import {useHistory} from "react-router-dom";
 
 const CourseItem = (props) => {
-
+    const router = useHistory()
     return (
         <div className={classes.course}>
             <div className={classes.course__p}>
@@ -13,7 +14,7 @@ const CourseItem = (props) => {
                 {props.course.body}
             </div>
             <div className={classes.btns}>
-                <MyButton onClick={() => props.remove(props.course)}>
+                <MyButton onClick={() => router.push(`/courses${props.courses.id}`)}>
                     Открыть
                 </MyButton>
                 <MyButton onClick={() => props.remove(props.course)}>
