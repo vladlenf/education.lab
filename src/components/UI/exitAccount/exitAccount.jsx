@@ -4,7 +4,7 @@ const ExitAccount = ({children, ...props}) => {
     return (
         <div {...props}>
             {children} {/*Имя аккаунта*/}
-            <a href ="/index.html">Выйти</a>
+            <a href ="http://localhost:3000/welcome">Выйти</a>
         </div>
     );
 };

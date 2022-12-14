@@ -13,8 +13,6 @@ import CoursePage from "./pages/CoursePage/CoursePage";
 import {BrowserRouter} from "react-router-dom";
 import AppRouter from "./components/AppRouter";
 import {useCourses} from "./hooks/useCourses";
-import {LoginContext} from "./context/login";
-
 
 
 function FormRegistration() {
@@ -37,16 +35,11 @@ const [userLogin,setUserLogin] = useState('')
       /*<Userprofile/>*/
       /*/!*<*!/FirstPage/>*/
 
-
-      <LoginContext.Provider value={{
-          userLogin,
-          setUserLogin
-      }}>
           <BrowserRouter>
 
               <AppRouter/>
           </BrowserRouter>
-      </LoginContext.Provider>
+
 
 
 

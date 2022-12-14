@@ -12,11 +12,9 @@ import CourseFilter from "../../components/CourseFilter";
 import userLogin from "../../components/API/Login";
 import getCourses from "../../components/API/getCourses";
 import axios from "axios";
-import {LoginContext} from "../../context/login";
+
 
 const CoursePage = () => {
-    const {userLogin, setUserLogin} = useContext(LoginContext);
-    console.log(userLogin)
 
     /*Массив курсов состоящий из объектов*/
     const [courses,setCourses] = useState([
@@ -38,7 +36,6 @@ const CoursePage = () => {
 
     useEffect( ()=>{
         fetchCourses()
-        console.log(userLogin)
     },[])
 
     async function fetchCourses() {
@@ -68,7 +65,7 @@ const CoursePage = () => {
             <main >
 
                 <div className={classes.LeftContent}>
-                    <strong>Ваши подписки:</strong>
+                    <strong>Ваши подписки:(В разбработке!)</strong>
                     {courses.map(course =>{
                         return (
                             <p><a href={vk}></a>{course.title}</p>
@@ -88,7 +85,7 @@ const CoursePage = () => {
                 <div className={classes.RightContent}>
 
                     <div className={classes.RightUpContent}>
-                        sasddasdsa
+                        Календарь с дедлайнами (В разработке!)
                     </div>
                     <div className={classes.RightBottomContent}>
                         <MyButton onClick={() => setModal(true)}>

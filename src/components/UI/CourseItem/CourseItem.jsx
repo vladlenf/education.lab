@@ -8,17 +8,17 @@ const CourseItem = (props) => {
     return (
         <div className={classes.course}>
             <div className={classes.course__p}>
-                <p><strong>{props.number}. {props.course.title}</strong></p>
+                <p><strong>{props.course.title}</strong></p>
             </div>
             <div className={classes.course__content}>
                 {props.course.body}
             </div>
             <div className={classes.btns}>
                 <MyButton onClick={() => router.push(`/courses${props.courses.id}`)}>
-                    Открыть
+                    Открыть(В разработке!)
                 </MyButton>
                 <MyButton onClick={() => props.remove(props.course)}>
-                    Удалить
+                    Удалить(В разработке!)
                 </MyButton>
             </div>
         </div>

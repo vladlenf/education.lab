@@ -35,13 +35,15 @@ main{
 }
 
 .RightUpContent {
-    border-left: 2px black solid;
+    /*border-left: 2px black solid;*/
     background-color: #00a6ff;
     height: 20em;
 }
 
 .RightBottomContent {
-    border-left: 2px black solid;
-    background-color: red;
+    /*border-left: 2px black solid;*/
+    background-color: wheat;
     height: 20em;
+    display: flex;
+    justify-items: center;
 }

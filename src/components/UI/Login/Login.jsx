@@ -7,10 +7,9 @@ import router from "react-router-dom/es/Router";
 import {Link} from "react-router-dom";
 import userLogin from "../../API/Login";
 import {useInput} from "../../../hooks/useValidations"
-import {LoginContext} from "../../../context/login";
+
 
 const SignIn = async (e) => {
-    const {userLogin,setUserLogin} = useContext(LoginContext)
     const login = document.getElementById('login').value;
     const password = document.getElementById('password').value;
     const userData = new FormData()
@@ -19,7 +18,6 @@ const SignIn = async (e) => {
     const response = await userLogin.postAll(userData);
     console.log(response);
     if(response.access === 'allowed'){
-        setUserLogin('login')
         document.location.href = "http://localhost:3000/courses";
     } else {
         alert('ВЫЙДИ И ЗАЙДИ НОРМАЛЬНА!')
