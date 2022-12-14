@@ -46,7 +46,7 @@ const Registration = () => {
     const Date = useInput('', {isEmpty: true})
     const userEmail = useInput('', {isEmpty: true, minLength: 1, maxLength: 40, isEmail:true})
     const Login = useInput('', {isEmpty: true, minLength: 1, maxLength: 40})
-    const Password = useInput({}, {isEmpty: true, minLength: 1, maxLength: 40, repeatPassword: false})
+    const Password = useInput('', {isEmpty: true, minLength: 1, maxLength: 40, repeatPassword: false})
     const Password2 = useInput('',{})
 
     return (
